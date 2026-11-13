@@ -1,0 +1,44 @@
+FORJA PS2 - PACOTE PARA OPL
+=======================================
+
+Projeto: Snesticle by Jota
+Origem no OPL: USB
+Destino: raiz do pendrive (mass:)
+
+1) COPIAR A ESTRUTURA
+   Mova a pasta "OPL" deste pacote para o destino:
+   raiz do pendrive (mass:)
+   Ela ja vem com APPS, ART, CD, CFG, CHT, DVD, LNG, THM e VMC.
+
+2) COMPILAR
+   O OPL so executa um binario ELF do PS2, entao o codigo (que esta em
+   PROJETO/SNESTICLE-BY-JOTA/) precisa ser compilado com o ps2sdk. Com o ps2sdk
+   instalado, rode na raiz deste pacote:
+
+     bash build.sh
+
+   O script exporta PS2SDK, roda o make, copia o ELF para
+   OPL/APPS/SNESTICLE-BY-JOTA/BOOT.ELF e avisa quando termina.
+   Manualmente seria:
+
+     export PS2DEV=/usr/local/ps2dev
+     export PS2SDK=$PS2DEV/ps2sdk
+     export PATH=$PATH:$PS2DEV/bin:$PS2DEV/ee/bin:$PS2DEV/iop/bin
+     cd PROJETO/SNESTICLE-BY-JOTA
+     make
+
+3) COLOCAR NO OPL
+   O build.sh ja entrega pronto:
+
+     OPL/APPS/SNESTICLE-BY-JOTA/BOOT.ELF
+
+   Junto dele esta o title.cfg, que define o nome exibido no OPL.
+   Se preferir um arquivo solto, copie o ELF direto para OPL/APPS/
+   com qualquer nome .elf.
+
+4) ABRIR NO CONSOLE
+   Ligue o OPL, va em Apps e escolha "Snesticle by Jota".
+   O app roda a partir de mass:; use exatamente esse dispositivo
+   para ler ROMs, configuracoes e saves.
+
+Dica: no menu de Apps do OPL, R1 abre as opcoes de cada aplicativo.
